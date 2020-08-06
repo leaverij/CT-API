@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 
 // mysql
+/*
 const mysql = require('mysql');
 var connection = mysql.createConnection({
     host     : 'localhost',
@@ -11,7 +12,7 @@ var connection = mysql.createConnection({
     database : ''
 }); 
 connection.connect();
-
+*/
 app.get('/', (req, res) => {
     res.json({
         hello: 'world'
