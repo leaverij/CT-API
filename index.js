@@ -15,7 +15,8 @@ connection.connect();
 */
 app.get('/', (req, res) => {
     res.json({
-        hello: 'world'
+        hello: 'world',
+        hi: "hi"
     });
 });
 
