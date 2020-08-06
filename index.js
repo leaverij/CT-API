@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3001;
+const port = 3000;
 
 // mysql
 /*
@@ -37,6 +37,6 @@ app.get('/user/:user_id', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+app.listen(process.env.PORT || port, () => {
+    console.log(`Example app listening at http://localhost:`);
 });
