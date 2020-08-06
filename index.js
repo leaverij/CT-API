@@ -15,8 +15,9 @@ connection.connect();
 */
 app.get('/', (req, res) => {
     res.json({
-        hello: 'world',
-        hi: "hi"
+        name: '胡士鑫',
+        age: 34,
+        email: 'rogerhu@gmail.com'
     });
 });
 
