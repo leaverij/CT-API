@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 80;
 
 // mysql
-/*
+
 const mysql = require('mysql');
 var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : '',
-    password : '',
-    database : ''
+    host     : 'ct-school.cx8nfhnsjxef.us-west-2.rds.amazonaws.com',
+    user     : 'admin',
+    password : 'ctschool',
+    database : 'w3schools'
 }); 
 connection.connect();
-*/
+
 app.get('/', (req, res) => {
     res.json({
         name: '胡士鑫',
@@ -21,17 +21,17 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/user', (req, res) => {
-    let sql = `SELECT * FROM user`;
+app.get('/customers', (req, res) => {
+    let sql = `SELECT * FROM customers`;
     connection.query(sql, (error, results, fields) => {
         if(error) throw error;
         res.json(results);
     });
 });
 
-app.get('/user/:user_id', (req, res) => {
-    let user_id = req.params.user_id;
-    let sql = `SELECT * FROM user WHERE user_id=${user_id}`;
+app.get('/customer/:CustomerID', (req, res) => {
+    let CustomerID = req.params.CustomerID;
+    let sql = `SELECT * FROM customers WHERE CustomerID=${CustomerID}`;
     connection.query(sql, (error, results, fields) => {
         if(error) throw error;
         res.json(results);
@@ -39,5 +39,5 @@ app.get('/user/:user_id', (req, res) => {
 });
 
 app.listen(process.env.PORT || port, () => {
-    console.log(`Example app listening at http://localhost:`);
+    console.log(`Example app listening at http://localhost`);
 });
